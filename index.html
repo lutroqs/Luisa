@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Projetos da Luisa</title>
+<meta name="description" content="Portfólio, escritório virtual, LUISA OS e laboratório de SQL — projetos de Luisa Troquetti.">
+<style>
+:root{--bg:#F5F1EC;--card:#FFFDF9;--ink:#221B1E;--muted:#6F6266;--line:#E4DAD0;--accent:#5B2A6E}
+@media (prefers-color-scheme:dark){:root{--bg:#1B1719;--card:#262022;--ink:#F2ECEE;--muted:#B5A8AC;--line:#3D3437;--accent:#C9A2DA}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:880px;margin:0 auto;padding:56px 16px 80px}
+.eyebrow{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0}
+h1{font-size:clamp(2rem,6vw,3rem);line-height:1.05;margin:8px 0 12px;letter-spacing:-.02em}
+h1 em{color:var(--accent);font-style:normal}
+.lead{color:var(--muted);max-width:52ch;margin:0 0 36px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+a.card{display:grid;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;color:inherit;text-decoration:none;transition:border-color .15s,transform .15s}
+a.card:hover{border-color:var(--accent);transform:translateY(-2px)}
+a.card b{font-size:1.1rem}
+a.card span{color:var(--muted);font-size:.92rem}
+a.card i{font-style:normal;color:var(--accent);font-size:.85rem;font-weight:600;margin-top:6px}
+footer{margin-top:48px;color:var(--muted);font-size:.85rem}
+</style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">Luisa Troquetti</p>
+  <h1>Meus <em>projetos</em></h1>
+  <p class="lead">Portfólio, ferramentas de organização e estudo que eu construí. Tudo roda direto no navegador.</p>
+  <div class="grid">
+    <a class="card" href="luisa-troquetti/"><b>Portfólio</b><span>Quem eu sou, ferramentas que uso, experiências e contato.</span><i>Abrir →</i></a>
+    <a class="card" href="escritorio-da-luisa/"><b>Escritório da Luisa</b><span>Quadro de tarefas, foco, prazos, calendário, mapas mentais. Funciona como app no celular.</span><i>Abrir →</i></a>
+    <a class="card" href="nexlu-luisa-os/"><b>Nexlu · LUISA OS</b><span>Central de estudos: biblioteca, revisão, ações e pesquisa (prévia com dados de exemplo).</span><i>Abrir →</i></a>
+    <a class="card" href="laboratorio-sql/"><b>Laboratório SQL</b><span>27 exercícios de SQL com correção automática, do SELECT às window functions.</span><i>Abrir →</i></a>
+  </div>
+  <footer>© 2026 Luisa Troquetti · São Paulo</footer>
+</main>
+</body>
+</html>

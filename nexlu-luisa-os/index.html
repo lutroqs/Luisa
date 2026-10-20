@@ -1,0 +1,242 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Nexlu · LUISA OS</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300..700&family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,400&display=swap">
+<style>
+/* Layout: barra vinho fixa com abas (como a referência) + conteúdo em papel bege, cartões finos */
+:root{
+  --vinho:#6E1E2D; --vinho-esc:#561622; --vinho-claro:#F2E2E3; --vinho-linha:#E5C9CD;
+  --bege:#F3ECE3; --papel:#FBF8F4; --linha:#E9DECF; --linha-forte:#DCCDB9;
+  --tinta:#1C1C1C; --tinta-2:#3A3533; --tinta-3:#6E625C; --tinta-4:#8E827B; --tinta-5:#B3A79F;
+  --salvia:#5E6B57; --salvia-claro:#E4E8DF; --ouro:#A27B3F; --ouro-claro:#F1E6D2; --creme:#F7F2EC;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif; --sans:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--bege);color:var(--tinta);font-family:var(--sans);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--vinho)}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--vinho);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--vinho);color:var(--papel)}
+header .wrap{padding-block:12px 0}
+.toprow{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.eyebrow{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:var(--tinta-4)}
+header .eyebrow{color:#E9DECF}
+.pill{display:inline-flex;align-items:center;gap:6px;border-radius:99px;background:rgba(0,0,0,.18);padding:4px 10px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#F3ECE3}
+.dot{width:6px;height:6px;border-radius:50%;background:#9fd8b4}
+.btn-imp{background:var(--papel);color:var(--vinho);border-radius:6px;padding:6px 12px;font-size:12px;font-weight:500}
+.avatar{width:30px;height:30px;border-radius:50%;background:var(--vinho-esc);border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-size:12px}
+.brand{font-family:var(--serif);font-size:clamp(24px,4vw,30px);font-weight:500;margin-top:2px;letter-spacing:-.01em}
+nav{display:flex;gap:24px;overflow-x:auto;margin-top:10px;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav button{flex-shrink:0;padding-bottom:10px;border-bottom:2px solid transparent;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:#E9DECF}
+nav button[aria-current="true"]{border-color:var(--papel);color:var(--papel)}
+main{padding-block:32px 96px}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(26px,4vw,34px);line-height:1.15;margin:6px 0 0;text-wrap:balance}
+.sub{color:var(--tinta-3);max-width:62ch;margin:4px 0 0}
+.tagline{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--tinta-3);margin:4px 0 0}
+.stats{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:26px}
+.stat{background:var(--papel);border:1px solid var(--linha);border-radius:8px;padding:16px}
+.stat b{display:block;font-family:var(--serif);font-weight:400;font-size:30px;line-height:1;font-variant-numeric:tabular-nums}
+.stat b.acc{color:var(--vinho)}
+.stat .eyebrow{margin-top:8px}
+.grid2{display:grid;grid-template-columns:1.15fr 1fr;gap:32px}
+.sec{margin-top:32px}
+.sechead{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:12px}
+.link{font-size:12px;color:var(--vinho)}
+.card{background:var(--papel);border:1px solid var(--linha);border-radius:12px;box-shadow:0 1px 0 rgba(28,28,28,.04),0 8px 24px -16px rgba(74,18,29,.18)}
+.pad{padding:20px}
+.ring{display:flex;align-items:center;gap:16px}
+.cta{display:flex;justify-content:space-between;align-items:center;background:var(--vinho);color:var(--papel);border-radius:8px;padding:12px 16px;margin-top:18px;width:100%;text-align:left}
+.studyitem{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--linha);border-radius:8px;padding:10px 16px;margin-top:8px;width:100%;text-align:left}
+.studyitem small{display:block;color:var(--tinta-4);font-size:12px}
+.ic{width:16px;height:16px;flex-shrink:0;margin-top:2px;color:var(--vinho)}
+.act{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--linha)}
+.act:last-child{border-bottom:0}
+.chk{width:18px;height:18px;border-radius:4px;border:1px solid var(--tinta-5);background:var(--papel);flex-shrink:0;margin-top:1px;display:grid;place-items:center}
+.chk.on{background:var(--vinho);border-color:var(--vinho);color:var(--papel)}
+.act p{margin:0}
+.act .t{font-size:14px;line-height:1.35}
+.act.done .t{color:var(--tinta-4);text-decoration:line-through}
+.act .d{font-size:12.5px;color:var(--tinta-3);margin-top:2px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;align-items:center}
+.tag{display:inline-flex;border-radius:4px;padding:2px 6px;font-size:9.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:var(--vinho-claro);color:var(--vinho)}
+.tag.b{background:#EDE3D6;color:var(--tinta-3)}.tag.s{background:var(--salvia-claro);color:var(--salvia)}.tag.o{background:var(--ouro-claro);color:var(--ouro)}.tag.k{background:var(--tinta);color:var(--papel)}
+.star{margin-left:auto;color:var(--tinta-5)}.star.on{color:var(--vinho)}
+.src{font-size:11px;color:var(--tinta-4)}
+.rows{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.row{display:flex;gap:16px;background:var(--papel);border:1px solid var(--linha);border-radius:12px;padding:16px;text-align:left;width:100%;transition:border-color .15s}
+.row:hover{border-color:var(--vinho-linha)}
+.ricon{width:36px;height:36px;border-radius:8px;background:#F3ECE3;color:var(--vinho);display:grid;place-items:center;flex-shrink:0;font-family:var(--serif);font-size:13px}
+.row .ti{font-family:var(--serif);font-size:16px;line-height:1.3;color:var(--tinta)}
+.row .meta{font-size:11px;color:var(--tinta-4);flex-shrink:0}
+.row .ex{font-size:13px;color:var(--tinta-3);margin-top:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.min0{min-width:0;flex:1}
+.top{display:flex;justify-content:space-between;gap:12px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--linha-forte);background:var(--papel);color:var(--tinta-3);border-radius:6px;padding:4px 10px;font-size:12px}
+.chip[aria-pressed="true"]{border-color:var(--vinho);background:var(--vinho-claro);color:var(--vinho)}
+.chip span{opacity:.6;margin-left:4px}
+.tabs{display:flex;gap:20px;overflow-x:auto;border-bottom:1px solid var(--linha);margin:28px 0 22px;scrollbar-width:none}
+.tabs button{flex-shrink:0;padding-bottom:8px;margin-bottom:-1px;border-bottom:2px solid transparent;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:var(--tinta-4)}
+.tabs button[aria-selected="true"]{border-color:var(--vinho);color:var(--vinho)}
+.execsum{border-left:2px solid var(--vinho);padding-left:20px;margin-bottom:22px}
+.execsum p{font-family:var(--serif);font-size:18px;line-height:1.55;margin:8px 0 0}
+.prose{color:var(--tinta-2);font-size:14.5px;line-height:1.7;max-width:68ch}
+.prose p{margin:0 0 10px}
+.ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.ul li{display:flex;gap:12px;font-size:14.5px;color:var(--tinta-2);line-height:1.55}
+.num{width:20px;height:20px;border-radius:50%;background:var(--vinho-claro);color:var(--vinho);font-size:10px;font-weight:600;display:grid;place-items:center;flex-shrink:0;margin-top:2px}
+.bul{width:6px;height:6px;border-radius:50%;background:#9A4A58;flex-shrink:0;margin-top:.6em}
+.mm{overflow-x:auto;background:var(--creme);border:1px solid var(--linha);border-radius:12px;padding:24px}
+.br{display:flex;align-items:center}
+.n0{background:var(--vinho);color:var(--papel);font-family:var(--serif);font-size:16px;padding:12px 16px;border-radius:8px;max-width:180px;flex-shrink:0}
+.n1{border:1px solid var(--vinho-linha);background:var(--papel);color:var(--vinho);font-family:var(--serif);font-size:14.5px;padding:7px 12px;border-radius:8px;flex-shrink:0}
+.n2{font-size:13px;color:var(--tinta-2);padding:3px 8px;flex-shrink:0}
+.kids{display:flex;flex-direction:column;gap:8px;margin-left:16px;padding-left:16px;border-left:1px solid var(--vinho-linha);position:relative}
+.kids>div{position:relative}
+.kids>div::before{content:"";position:absolute;left:-16px;top:50%;width:16px;height:1px;background:var(--vinho-linha)}
+.flash{min-height:230px;display:flex;flex-direction:column;justify-content:center;padding:32px;width:100%;text-align:left}
+.flash .q{font-family:var(--serif);font-size:22px;line-height:1.35;margin-top:10px}
+.grades{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}
+.grades button{border:1px solid var(--linha-forte);background:var(--papel);border-radius:8px;padding:9px 4px;font-size:14px}
+.grades small{display:block;font-size:10px;opacity:.6}
+.grades.off{opacity:.3;pointer-events:none}
+.chat{display:flex;flex-direction:column;gap:22px;max-width:760px}
+.me{align-self:flex-end;background:var(--vinho);color:var(--papel);border-radius:16px 16px 4px 16px;padding:10px 16px;max-width:85%;font-size:14.5px}
+.cite{display:inline-grid;place-items:center;background:var(--vinho-claro);color:var(--vinho);border-radius:4px;font-size:10px;font-weight:600;padding:0 4px;margin:0 2px;vertical-align:1px}
+.composer{display:flex;gap:8px;align-items:center;border:1px solid var(--linha-forte);background:var(--papel);border-radius:16px;padding:8px;margin-top:22px;max-width:760px}
+.composer input{flex:1;border:0;background:none;font:inherit;font-size:15px;outline:none;padding:6px 8px;color:var(--tinta);min-width:0}
+.send{width:36px;height:36px;border-radius:12px;background:var(--vinho);color:var(--papel);display:grid;place-items:center;flex-shrink:0}
+.search{width:100%;border:1px solid var(--linha-forte);background:var(--papel);border-radius:16px;padding:16px 16px 16px 46px;font-family:var(--serif);font-size:18px;color:var(--tinta);outline:none}
+.hit{display:block;padding:20px;margin-top:10px}
+.hit blockquote{margin:10px 0 0;border-left:2px solid var(--vinho-linha);padding-left:12px;font-size:14px;line-height:1.65;color:var(--tinta-2)}
+mark{background:var(--vinho-claro);color:var(--vinho);border-radius:3px;padding:0 2px}
+.hook{display:block;background:#EDE3D6;border-radius:8px;padding:8px 12px;font-size:11.5px;overflow-x:auto;white-space:nowrap;color:var(--tinta-2);margin-top:6px}
+.note{margin-top:40px;font-size:12px;color:var(--tinta-4);border-top:1px solid var(--linha);padding-top:14px;max-width:70ch}
+.fab{position:fixed;right:calc(20px + env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));width:56px;height:56px;border-radius:50%;background:var(--vinho);color:var(--papel);display:none;place-items:center;font-size:26px;box-shadow:0 10px 24px -8px rgba(110,30,45,.5)}
+@media (max-width:900px){.stats{grid-template-columns:repeat(3,1fr)}.grid2{grid-template-columns:1fr;gap:0}}
+@media (max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}.rows{grid-template-columns:1fr}.btn-imp,.hidesm{display:none}.fab{display:grid}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<header>
+  <div class="wrap">
+    <div class="toprow">
+      <p class="eyebrow">Nexlu · Luisa</p>
+      <div style="display:flex;gap:8px;align-items:center">
+        <span class="pill"><span class="dot"></span><span class="hidesm">Sincronizado</span></span>
+        <button class="btn-imp" data-go="importar">+ Importar</button>
+        <span class="avatar">L</span>
+      </div>
+    </div>
+    <div class="brand">LUISA OS</div>
+    <nav id="nav"></nav>
+  </div>
+</header>
+<main class="wrap" id="view"></main>
+<button class="fab" data-go="importar" aria-label="Importar">+</button>
+
+<script>
+const D = {
+  stats:[[23,'Estudados'],['41 h','De aprendizado'],[12,'Tarefas pendentes',1],[18,'Cards p/ revisar',1],[9,'Reuniões'],[34,'Temas conectados']],
+  actions:[
+    {t:'Testar conteúdo embalado como entretenimento',d:'Refazer um vídeo profundo que já existe na versão lúdica.',k:'Tarefa',o:'Recomendada',src:'Contágio — Jonah Berger',star:1},
+    {t:'Rodar a análise dos próprios vídeos por tema e formato',d:'Mapear o que já validou e mover mais conteúdo para esse formato.',k:'Tarefa',o:'Pendência',owner:'Luisa',due:'24/10',src:'Mentoria · Grupo 3'},
+    {t:'Definir a precificação da mentoria',d:'Valor cheio R$ 1.490 · 3x sem juros · condição de lançamento.',k:'Meta',o:'Próximo passo',due:'31/10',src:'Mentoria · Grupo 3'},
+    {t:'Gravar cinco vídeos de uma vez',d:'Construir bastidores do lançamento e da rotina.',k:'Projeto',o:'Recomendada',src:'Building a Second Brain'},
+    {t:'Revisar o funil de vendas antes do lançamento',k:'Responsabilidade',o:'Detectada',owner:'Luisa',src:'Reunião de alinhamento'},
+  ],
+  library:[
+    {id:'m3',k:'Reunião',i:'R',t:'Mentoria · Grupo 3',ex:'Revisão do funil, preço da mentoria e calendário de conteúdo de novembro. Ficou decidido abrir a lista de espera dia 3.',when:'19/10/2026',tags:['marketing','lançamento']},
+    {id:'b1',k:'Livro',i:'L',t:'Building a Second Brain — Tiago Forte',ex:'Método CODE (Capturar, Organizar, Destilar, Expressar) e PARA para transformar informação em projetos concluídos.',when:'há 2 d',tags:['produtividade','conhecimento'],st:1},
+    {id:'y1',k:'YouTube',i:'▶',t:'Como estruturar um funil de conteúdo',ex:'Topo, meio e fundo aplicados a Instagram e e-mail, com métricas para cada etapa.',when:'há 4 d',tags:['funil','conteúdo']},
+    {id:'p1',k:'PDF',i:'P',t:'Relatório de tendências de IA 2026',ex:'Agentes em produção, custo por tarefa caindo e o papel da curadoria humana.',when:'há 1 sem',tags:['ia','tendências']},
+    {id:'n1',k:'Nota',i:'N',t:'Ideias para o curso de marca pessoal',ex:'Módulos possíveis, bônus e a promessa central em uma frase.',when:'há 1 sem',tags:['marca']},
+    {id:'c1',k:'Link',i:'↗',t:'Contágio: por que as coisas pegam',ex:'Os seis princípios STEPPS e como aplicar em campanhas.',when:'há 2 sem',tags:['marketing']},
+  ],
+};
+const NAV=[['hoje','Hoje'],['biblioteca','Biblioteca'],['conteudo','Conhecimento'],['reunioes','Reuniões'],['aprender','Aprender'],['acoes','Ações'],['mentor','Mentor IA'],['pesquisa','Pesquisa']];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const tagTone={Tarefa:'',Meta:'o',Projeto:'s',Responsabilidade:'b'};
+const ico={book:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="m9 10 2 2 4-4"/></svg>',brain:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="color:inherit"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M7 12h10"/></svg>',target:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="color:var(--ouro)"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg>'};
+
+function actionRow(a,i,showSrc=true){return `<div class="act ${a.done?'done':''}"><button class="chk ${a.done?'on':''}" data-toggle="${i}" aria-label="Concluir">${a.done?'✓':''}</button><div class="min0"><p class="t">${esc(a.t)}</p>${a.d?`<p class="d">${esc(a.d)}</p>`:''}<div class="tags"><span class="tag ${tagTone[a.k]}">${a.k}</span>${a.o?`<span class="tag b">${a.o}</span>`:''}${a.owner?`<span class="tag b">${a.owner}</span>`:''}${a.due?`<span class="tag b">Até ${a.due}</span>`:''}${showSrc?`<span class="src">${esc(a.src)}</span>`:''}</div></div><button class="star ${a.star?'on':''}" data-star="${i}" aria-label="Destacar">★</button></div>`}
+function contentRow(c){return `<button class="row" data-open="${c.id}"><span class="ricon">${c.i}</span><span class="min0"><span class="top"><span class="ti">${esc(c.t)}</span><span class="meta">${c.when}</span></span><span class="ex">${esc(c.ex)}</span><span class="tags"><span class="tag ${c.k==='Reunião'?'':c.k==='YouTube'?'o':c.k==='Nota'?'s':'b'}">${c.k}</span>${c.st?'<span class="tag s">Estudado</span>':''}${c.tags.map(t=>`<span class="tag b">${t}</span>`).join('')}</span></span></button>`}
+
+const V={
+hoje:()=>`<p class="eyebrow">${new Date().toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'})}</p>
+<h1>Boa noite, Luisa.</h1><p class="tagline">Seu conhecimento organizado, conectado e transformado em ação.</p>
+<div class="stats">${D.stats.map(s=>`<div class="stat"><b class="${s[2]?'acc':''}">${s[0]}</b><p class="eyebrow">${s[1]}</p></div>`).join('')}</div>
+<div class="grid2"><section class="sec"><div class="sechead"><p class="eyebrow">Próximos estudos</p><button class="link" data-go="aprender">Aprender →</button></div>
+<div class="card pad"><div class="ring"><svg viewBox="0 0 36 36" width="56" height="56" style="transform:rotate(-90deg)"><circle cx="18" cy="18" r="15.5" fill="none" stroke="#E9DECF" stroke-width="3"/><circle cx="18" cy="18" r="15.5" fill="none" stroke="#6E1E2D" stroke-width="3" stroke-linecap="round" stroke-dasharray="58 97.4"/></svg><div><p style="font-family:var(--serif);font-size:17px;margin:0">Meta de hoje: 30 min</p><p style="margin:0;color:var(--tinta-3);font-size:13px">18 min hoje · 4,5 h nesta semana</p></div></div>
+<button class="cta" data-go="aprender"><span>Revisar 18 flashcards</span><span>→</span></button>
+<button class="studyitem" data-open="b1">${ico.book}<span>Ler o capítulo 4 de Building a Second Brain<small>Você ainda não estudou o método de destilação progressiva</small></span></button>
+<button class="studyitem">${ico.target}<span>Aplicar: organizar seus projetos no método PARA<small>Colocar em prática fixa o aprendizado</small></span></button></div></section>
+<section class="sec"><div class="sechead"><p class="eyebrow">Para agora</p><button class="link" data-go="acoes">Todas as ações →</button></div><div class="card" style="padding:4px 20px">${D.actions.slice(0,4).map((a,i)=>actionRow(a,i)).join('')}</div></section></div>
+<section class="sec"><div class="sechead"><p class="eyebrow">Entradas recentes</p><button class="link" data-go="biblioteca">Biblioteca →</button></div><div class="rows">${D.library.slice(0,4).map(contentRow).join('')}</div></section>`,
+
+biblioteca:()=>`<h1>Biblioteca</h1><p class="sub">Tudo o que você consumiu, num só lugar: PDFs, livros, reuniões, vídeos, links e notas.</p>
+<div class="chips" style="margin:22px 0">${['Tudo 23','PDFs 6','Livros 4','Reuniões 9','YouTube 2','Links 1','Áudio e vídeo 0','Notas 1'].map((c,i)=>{const p=c.split(' ');const n=p.pop();return `<button class="chip" aria-pressed="${i==0}">${p.join(' ')}<span>${n}</span></button>`}).join('')}</div>
+<div class="rows">${D.library.map(contentRow).join('')}</div>`,
+
+conteudo:(tab='resumo')=>{const tabs=[['resumo','Resumo'],['ideias','Ideias'],['mapa','Mapa mental'],['flashcards','Flashcards'],['acoes','Ações'],['relacionados','Relacionados']];
+let body='';
+if(tab==='resumo')body=`<div class="execsum"><p class="eyebrow" style="color:var(--vinho)">Resumo executivo</p><p>Um segundo cérebro é um sistema externo que captura o que você aprende e o transforma em projetos concluídos. O método CODE organiza o fluxo e o PARA organiza o armazenamento por acionabilidade, não por assunto.</p></div><div class="prose"><p>Tiago Forte parte de um problema comum: consumimos mais informação do que conseguimos lembrar ou usar. A proposta é tratar notas como peças reutilizáveis, guardadas onde serão úteis para os projetos atuais.</p><p><b>Capturar</b> só o que ressoa. <b>Organizar</b> em Projetos, Áreas, Recursos e Arquivo. <b>Destilar</b> com destaques em camadas, até a essência. <b>Expressar</b> criando algo com o que foi guardado.</p></div>`;
+if(tab==='ideias')body=`<ul class="ul">${['Organize por projeto, não por tema.','Guarde o que ressoa, não tudo o que parece importante.','Destilação progressiva: cada leitura deixa a nota mais curta e útil.','Pacotes intermediários aceleram entregas futuras.','Criar é o teste final do que você aprendeu.'].map((t,i)=>`<li><span class="num">${i+1}</span>${t}</li>`).join('')}</ul>`;
+if(tab==='mapa')body=`<div class="mm"><div class="br" style="width:max-content"><div class="n0">Segundo cérebro</div><div class="kids">${[['CODE',['Capturar','Organizar','Destilar','Expressar']],['PARA',['Projetos','Áreas','Recursos','Arquivo']],['Hábitos',['Revisão semanal','Inbox zero de notas']]].map(([a,b])=>`<div><div class="br"><div class="n1">${a}</div><div class="kids">${b.map(x=>`<div><div class="n2">${x}</div></div>`).join('')}</div></div></div>`).join('')}</div></div></div>`;
+if(tab==='flashcards')body=`<div class="rows">${[['O que significa a sigla PARA?','Projetos, Áreas, Recursos e Arquivo — organização pela acionabilidade.'],['Quais são as quatro etapas do CODE?','Capturar, Organizar, Destilar e Expressar.'],['O que é destilação progressiva?','Destacar em camadas a cada revisita, até restar a essência.'],['Projeto x Área: qual a diferença?','Projeto tem prazo e fim; área é uma responsabilidade contínua.']].map(([f,b],i)=>`<button class="row" style="display:block" data-flip="${i}"><span class="ti">${f}</span><span class="ex" data-back="${i}" style="display:block;color:var(--tinta-5);font-size:11px;-webkit-line-clamp:unset">Toque para revelar</span><span hidden data-ans="${i}">${b}</span></button>`).join('')}</div>`;
+if(tab==='acoes')body=`<div class="card" style="padding:4px 20px;max-width:760px">${[{t:'Montar as quatro pastas PARA no Drive e no app de notas',k:'Projeto',o:'Recomendada'},{t:'Fazer a revisão semanal toda sexta às 17h',k:'Responsabilidade',o:'Recomendada'},{t:'Criar 3 pacotes intermediários para o curso',k:'Tarefa',o:'Recomendada',due:'07/11'}].map((a,i)=>actionRow(a,100+i,false)).join('')}</div>`;
+if(tab==='relacionados')body=`<div class="rows">${[['Ideias para o curso de marca pessoal','Nota',82],['Mentoria · Grupo 3','Reunião',61],['Relatório de tendências de IA 2026','PDF',48]].map(r=>`<button class="row" style="justify-content:space-between;align-items:center"><span class="min0"><span class="tag b">${r[1]}</span><span class="ti" style="display:block;margin-top:6px">${r[0]}</span></span><span class="link">${r[2]}%</span></button>`).join('')}</div>`;
+return `<button class="src" data-go="biblioteca">← Biblioteca</button><div class="tags" style="margin-top:14px"><span class="tag b">Livro</span><span class="tag s">Estudado</span><span class="tag b">produtividade</span><span class="tag b">conhecimento</span></div><h1>Building a Second Brain</h1><p class="sub">Tiago Forte · 4h40 de leitura · 18 flashcards · 9 perguntas · 6 ações</p>
+<div class="tabs" role="tablist">${tabs.map(([v,l])=>`<button role="tab" aria-selected="${v===tab}" data-ctab="${v}">${l}</button>`).join('')}</div>${body}`},
+
+reunioes:()=>`<h1>Reuniões</h1><p class="sub">Assim que a reunião termina, o Nexlu organiza transcrição, resumo, decisões, pendências, próximos passos e o relatório completo.</p>
+<div class="grid2"><section class="sec"><p class="eyebrow" style="margin-bottom:12px">Outubro de 2026</p><div style="display:grid;gap:10px">${contentRow(D.library[0])}${contentRow({id:'m2',k:'Reunião',i:'R',t:'Alinhamento de lançamento',ex:'Datas do aquecimento, responsáveis por anúncios e roteiro da live de abertura.',when:'12/10/2026',tags:['lançamento']})}</div></section>
+<section class="sec"><p class="eyebrow" style="margin-bottom:12px">Atualização automática</p><div class="card pad"><p style="font-family:var(--serif);font-size:16px;color:var(--vinho);margin:0">Conecte seu agente de reuniões</p><p style="color:var(--tinta-3);font-size:13px">Quando a reunião termina, a transcrição chega aqui e vira resumo, decisões e tarefas sem você fazer nada.</p><p class="eyebrow">Seu endereço privado</p><code class="hook">https://nexlu.vercel.app/api/webhooks/meeting?token=•••••••</code></div></section></div>`,
+
+aprender:()=>`<h1>Aprender</h1><p class="sub">Revisão espaçada, quiz automático e um plano de estudo feito para você.</p>
+<div class="stats" style="grid-template-columns:repeat(4,1fr)">${[[18,'Para revisar hoje',1],[142,'Flashcards'],[57,'Memória de longo prazo'],['78%','Acerto no quiz']].map(s=>`<div class="stat"><b class="${s[2]?'acc':''}">${s[0]}</b><p class="eyebrow">${s[1]}</p></div>`).join('')}</div>
+<div style="max-width:620px;margin-top:28px"><p class="eyebrow" style="margin-bottom:8px">18 restantes · Building a Second Brain</p><button class="card flash" id="flash"><p class="eyebrow">Pergunta</p><p class="q" id="fq">O que é destilação progressiva?</p><p style="font-size:12px;color:var(--tinta-5);margin-top:20px" id="fh">Toque para ver a resposta</p></button>
+<div class="grades off" id="grades">${[['Errei','10 min'],['Difícil','3 d'],['Bom','6 d'],['Fácil','8 d']].map(g=>`<button data-grade>${g[0]}<small>${g[1]}</small></button>`).join('')}</div></div>`,
+
+acoes:()=>`<h1>Ações</h1><p class="sub">Tudo que você precisa fazer. Detectado automaticamente dos seus conteúdos e reuniões: marque, acompanhe, conclua.</p>
+<div class="chips" style="margin:22px 0 10px">${['Todas 12','Tarefas 7','Metas 2','Projetos 2','Responsabilidades 1'].map((c,i)=>{const p=c.split(' ');const n=p.pop();return `<button class="chip" aria-pressed="${i==0}">${p.join(' ')}<span>${n}</span></button>`}).join('')}</div>
+<div class="chips" style="margin-bottom:22px">${['Abertas','Feitas','Todas'].map((c,i)=>`<button class="chip" aria-pressed="${i==0}">${c}</button>`).join('')}</div>
+<p class="eyebrow" style="margin-bottom:8px">Conteúdo · Mentoria · Grupo 3</p><div class="card" style="padding:4px 20px">${D.actions.map((a,i)=>actionRow(a,i)).join('')}</div>`,
+
+mentor:()=>`<div class="chat"><div class="me">O que aprendi sobre marketing nos últimos 6 meses?</div>
+<div><p class="eyebrow" style="color:var(--vinho)">Mentor</p><div class="prose"><p>Nos últimos seis meses você estudou 9 conteúdos de marketing, e eles convergem em três ideias.</p><p><b>1. Conteúdo que entretém se espalha.</b> Em «Contágio», histórias com emoção e utilidade prática são as mais compartilhadas <span class="cite">1</span>.</p><p><b>2. O funil começa antes da venda.</b> Na Mentoria · Grupo 3 vocês decidiram abrir a lista de espera antes do anúncio do preço <span class="cite">2</span>.</p><p><b>3. Reaproveitar acelera.</b> Os pacotes intermediários de Tiago Forte servem direto para o calendário de posts <span class="cite">3</span>.</p><p><b>Próximos passos:</b> definir a precificação até 31/10 e testar um vídeo em formato de entretenimento esta semana.</p></div><p class="eyebrow" style="margin-top:10px">Ver fontes (3)</p></div></div>
+<div class="composer"><input id="ask" placeholder="Pergunte qualquer coisa sobre o que você já estudou…" aria-label="Pergunta"><button class="send" aria-label="Enviar">↑</button></div>`,
+
+pesquisa:()=>`<h1>Pesquisa inteligente</h1><p class="sub">Procure em todos os PDFs, livros, vídeos, reuniões e notas ao mesmo tempo, pelo texto e pelo significado.</p>
+<div style="position:relative;margin-top:22px"><span style="position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--vinho)">⌕</span><input class="search" value="onde falei sobre funil de vendas?" aria-label="Pesquisar"></div>
+<p class="src" style="margin:16px 0 0">3 trechos encontrados</p>
+${[['Reunião','Mentoria · Grupo 3','em 23:14 · 19/10/2026','…precisamos revisar o <mark>funil</mark> de <mark>vendas</mark> antes de abrir o carrinho, principalmente a página de captura e a sequência de e-mails…'],['YouTube','Como estruturar um funil de conteúdo','em 4:02','…o topo do <mark>funil</mark> não é sobre <mark>vender</mark>, é sobre ser lembrada. Cada etapa tem uma métrica diferente…'],['Nota','Ideias para o curso de marca pessoal','','…bônus: aula sobre <mark>funil</mark> simples de três e-mails para quem ainda não tem lista…']].map(h=>`<a class="card hit" href="#"><span class="tags" style="margin:0"><span class="tag ${h[0]==='Reunião'?'':h[0]==='YouTube'?'o':'s'}">${h[0]}</span><span style="font-family:var(--serif);font-size:16px">${h[1]}</span><span class="src">${h[2]}</span></span><blockquote>${h[3]}</blockquote></a>`).join('')}`,
+
+importar:()=>`<h1>Importar</h1><p class="sub">Envie qualquer conteúdo. O Nexlu lê tudo e devolve resumos, insights, mapa mental, flashcards, quiz, ações e plano de implementação.</p>
+<div class="tabs">${['Arquivos','Link ou YouTube','Gravar','Reunião','Nota'].map((t,i)=>`<button aria-selected="${i==0}">${t}</button>`).join('')}</div>
+<div style="border:2px dashed var(--linha-forte);border-radius:16px;background:var(--papel);padding:56px 24px;text-align:center;max-width:760px"><p style="font-family:var(--serif);font-size:20px;margin:0">Arraste arquivos ou toque para escolher</p><p class="src" style="font-size:13px;margin-top:6px">PDF · EPUB · DOCX · TXT · MD · HTML · SRT/VTT · áudio · vídeo</p></div>`
+};
+
+let current='hoje';
+function render(v,arg){current=v;document.getElementById('view').innerHTML=V[v](arg)+`<p class="note">Prévia navegável com dados de exemplo. O app real usa sua base no Supabase, a IA e sincroniza entre celular e notebook.</p>`;
+  document.getElementById('nav').innerHTML=NAV.map(([k,l])=>`<button data-go="${k}" aria-current="${k===v||(v==='importar'&&false)}">${l}</button>`).join('');
+  window.scrollTo(0,0);}
+document.addEventListener('click',e=>{
+  const t=e.target.closest('[data-go],[data-open],[data-ctab],[data-toggle],[data-star],[data-flip],#flash,[data-grade]');if(!t)return;
+  if(t.dataset.go)render(t.dataset.go);
+  else if(t.dataset.open)render(t.dataset.open==='m3'?'reunioes':'conteudo');
+  else if(t.dataset.ctab){document.getElementById('view').innerHTML=V.conteudo(t.dataset.ctab)+'';}
+  else if(t.dataset.toggle!=null){const i=+t.dataset.toggle;if(D.actions[i]){D.actions[i].done=!D.actions[i].done;render(current)}else{t.classList.toggle('on');t.textContent=t.classList.contains('on')?'✓':'';t.closest('.act').classList.toggle('done')}}
+  else if(t.dataset.star!=null){t.classList.toggle('on')}
+  else if(t.dataset.flip!=null){const i=t.dataset.flip,b=document.querySelector(`[data-back="${i}"]`),a=document.querySelector(`[data-ans="${i}"]`);b.textContent=a.textContent;b.style.color='var(--tinta-2)';b.style.fontSize='13.5px'}
+  else if(t.id==='flash'){document.getElementById('fq').textContent='Destacar em camadas a cada vez que você revisita a nota, até restar só a essência que vai ser usada.';document.getElementById('fq').style.fontSize='17px';document.getElementById('fh').textContent='Resposta';document.getElementById('grades').classList.remove('off')}
+  else if(t.dataset.grade!==undefined){document.getElementById('fq').textContent='Qual a diferença entre Projeto e Área no método PARA?';document.getElementById('fq').style.fontSize='22px';document.getElementById('fh').textContent='Toque para ver a resposta';document.getElementById('grades').classList.add('off')}
+});
+render('hoje');
+</script>
+
+</body></html>

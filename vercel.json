@@ -1,0 +1,9 @@
+{
+  "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/escritorio-da-luisa/sw.js",
+      "headers": [{ "key": "Cache-Control", "value": "no-cache" }]
+    }
+  ]
+}
